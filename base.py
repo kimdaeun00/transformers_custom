@@ -265,6 +265,7 @@ def infer_framework_load_model(
             raise ValueError(f"Pipeline cannot infer suitable model classes from {model}")
 
         all_traceback = {}
+        class_tuple = [class_tuple[1]]
         for model_class in class_tuple:
             kwargs = model_kwargs.copy()
             if framework == "pt" and model.endswith(".h5"):
