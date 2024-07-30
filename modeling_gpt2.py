@@ -586,7 +586,7 @@ class GPT2Block(nn.Module):
         super().__init__()
         hidden_size = config.hidden_size
         inner_dim = config.n_inner if config.n_inner is not None else 4 * hidden_size
-        attention_class = GPT2_ATTENTION_CLASSES[config._attn_implementation]
+        attention_class = GPT2_ATTENTION_CLASSES["eager"]
 
         self.ln_1 = nn.LayerNorm(hidden_size, eps=config.layer_norm_epsilon)
         self.attn = attention_class(config=config, layer_idx=layer_idx)
